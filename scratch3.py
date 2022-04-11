@@ -1,6 +1,5 @@
-from collections import defaultdict
+from collections import Counter
+nums = [1,1,2,2,3,3,3,3,4,5,6,7]
+cnt = Counter(nums)
 
-#a = defaultdict(list)
-a = {}
-a[[111]] = 1
-print(a)
+print(cnt)
