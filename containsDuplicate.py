@@ -6,3 +6,5 @@ def containsDuplicate(nums):
         hashset.add(n)
     return False
     #or return len(nums) != len(set(nums))
+
+

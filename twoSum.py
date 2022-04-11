@@ -1,7 +1,7 @@
 def twoSum(nums, target):
-    d = {} #hash map value:index that will store "visisted" values of single pass soltuion:
+    d = {} #hash map value:index that will store "visisted" values & original index from input list:
     for i, n in enumerate(nums):
-        diff= target - n
+        diff = target - n
         if diff in d:
             return [d[diff],i] #return indicies of valid values
         d[n] = i #add n:i to the hash map
