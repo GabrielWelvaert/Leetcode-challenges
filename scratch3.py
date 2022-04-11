@@ -1,4 +1,6 @@
-a = [1,2,3]
-b = [4,5,6]
-c = zip(a,b)
-print(set(c))
+from collections import defaultdict
+
+#a = defaultdict(list)
+a = {}
+a[[111]] = 1
+print(a)
