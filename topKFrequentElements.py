@@ -15,7 +15,6 @@ def topKFrequent(nums, k):
             if len(ans) == k:
                 return ans
 
-
 print(topKFrequent([1,1,1,2,2,4], 2))
 print(topKFrequent([-1,-1],1))
 print(topKFrequent([1,2],2))

@@ -12,7 +12,7 @@ def longestConsecutive(nums):
             lcs = max(length, lcs)
     return lcs
 
-#my soltuion: O(nlogn) because sort()
+# my soltuion: O(nlogn) because sort()
 # def longestConsecutive(nums):
 #     lcs = current = 0
 #     if not nums: return 0
