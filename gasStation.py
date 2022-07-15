@@ -1,27 +1,39 @@
 def canCompleteCircuit(gas, cost):
-    d = []
-    for i in range(len(gas)):
-        temp = [gas[i], cost[i]]
-        if temp not in d:
-            d.append(temp)
-
-    s = []
-    for pair in d:
-        s.append(pair[0]-pair[1])
-
+    s = [(gas[i] - cost[i]) for i in range(len(gas))]
     if sum(s) < 0: return -1
     for i in range(len(s)):
-        #print(i)
         route = s[i+1::] + s[:i:]
         station1 = s[i]
         while station1 >= 0:
             for j in route:
                 station1 += j
                 if station1 < 0: break
-            if station1 >= 0:
-                if len(gas) > len(d):
-                    return i
-                return i
+            if station1 >= 0: return i
+
+# def canCompleteCircuit(gas, cost):
+#     d = []
+#     for i in range(len(gas)):
+#         temp = [gas[i], cost[i]]
+#         if temp not in d:
+#             d.append(temp)
+#
+#     s = []
+#     for pair in d:
+#         s.append(pair[0]-pair[1])
+#
+#     if sum(s) < 0: return -1
+#     for i in range(len(s)):
+#         #print(i)
+#         route = s[i+1::] + s[:i:]
+#         station1 = s[i]
+#         while station1 >= 0:
+#             for j in route:
+#                 station1 += j
+#                 if station1 < 0: break
+#             if station1 >= 0:
+#                 if len(gas) > len(d):
+#                     return i
+#                 return i
 
 # def canCompleteCircuit(gas, cost):
 #     s0 = [(gas[i] - cost[i]) for i in range(len(gas))]# if (gas[i] - cost[i]) != 0]

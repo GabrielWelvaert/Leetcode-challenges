@@ -1,49 +1,37 @@
-class Solution:
-    def isMatch(self, s: str, p: str) -> bool:
-        if set(p) == {"*"}: # when p = "*", "**", "***", etc
-            return True
-
-        if (len(s) != len(p)) and "*" not in p:
-            return False
-
-        segs = []
-        temp = ""
-        a = p.replace("*","")
-        a = a.replace("?", "")
-        for char in a:
-            if char not in temp:
-                temp += char
-            else:
-                segs.append(temp)
-                temp = ""
-                temp += char
-
-        print(segs)
+def b(s):
+    return '{:12b}'.format(1 + int(s, 2))
 
 
+fuck = ['000000000000']
+
+
+x = '000000000000'
+while x != '111111111111':
+    x = b(x)
+    fuck.append(x)
+
+fuck.append('111111111111')
+
+def check_three_threes(x):
+    count = 0
+    for char in x:
+        if char == "1":
+            count += 1
+    if count >= 3:
+        return 1
+    return 0
+
+threethrees = 0
+for shit in fuck:
+    threethrees += check_three_threes(shit)
+
+print(threethrees)
 
 
 
-class Testing:
-
-    from dataclasses import dataclass
-
-    @dataclass
-    class Case:
-        s: str
-        p: str
-        output: bool
-
-    cases = [Case("aa", "a", False), Case("aa", "*", True), Case("abcabczzzde","*abc???de*",True), Case("cb", "?a", False), Case("abceb","*a*b",True), Case("acdcb","a*c?b",False), Case("", "******", True), Case("ab","*?*?*", True), Case("hi","*?",True), Case("b","*a*",False), Case("aaaa","***a",True), Case("ho","**ho",True), Case("abce","abc*?",True), Case("mississippi","m*iss*",True),Case("mississippi","m*iss*iss*",True)]
-    cases = [Case("abcabczzzde","*abc???de*",True)]
-
-
-    def Test(self, cases=cases):
-        for case in cases:
-            ans = Solution.isMatch(Solution,case.s,case.p)
-            if ans == case.output:
-                print(f'test passed with {case.s}, {case.p}: output was {ans}')
-            else:
-                print(f'test FAILED with {case.s}, {case.p}: output was {ans} not {case.output}')
-
-Testing.Test(Testing)
+# count = 0
+# for shit in fuck:
+#     if (shit[0] == '0' and shit[1] == '0') or (shit[-1] == '1' and shit[-2] == '1' and shit[-3] == '1'):
+#         count += 1
+#
+# print(count)
